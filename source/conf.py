@@ -35,7 +35,7 @@ sys.path.append(os.path.abspath('ext'))
 author = "Percona LLC and/or its affiliates 2015-2020"
 extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.todo', 
               'sphinx.ext.coverage', 'sphinx.ext.ifconfig', 
-              'sphinx.ext.extlinks', 'psdom']
+              'sphinx.ext.extlinks', 'sphinx_gitstamp']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -55,7 +55,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Percona Distribution for MySQL'
-copyright = 'Percona LLC and/or its affiliates 2009-2020'
+copyright = 'Percona LLC and/or its affiliates 2009-2021'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -83,6 +83,9 @@ release = ".".join([version, release])
 #
 # today_fmt = '%B %d, %Y'
 
+# Date format for git timestamps
+gitstamp_fmt = "%b %d, %Y"
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
@@ -92,8 +95,6 @@ exclude_patterns = []
 # documents.
 #
 # default_role = None
-
-primary_domain = 'psdom'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #
@@ -209,6 +210,11 @@ html_sidebars = {
         'using/windows': ['windowssidebar.html'],
 }
 
+html_context = {
+    'repo_name': 'percona/pdmysql-docs',
+    'repo_url': 'https://github.com/percona/pdmysql-docs',
+    'edit_uri': 'edit/8.0/source'
+}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
